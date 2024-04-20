@@ -41,25 +41,40 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def __init__(self, health, strength):
-        # your code here
+        super().__init__(health)
+        super().__init__(strength)
+        
 
     def receiveDamage(self, damage):
-        # your code here
+        self.health -= damage
+        if self.health > 0:
+            return f"Un 'Saxon' ha recibido {damage} puntos de daño"
+        else:
+            return f"Un 'Saxon' ha muerto en combate"
 
 # Davicente
 
 class War():
     def __init__(self):
-        # your code here
+        vikingArmy = []
+        saxonArmy = []
 
     def addViking(self, viking):
-        # your code here
+        vikingArmy.append(viking)
     
     def addSaxon(self, saxon):
-        # your code here
+        saxonArmy.append(saxon)
     
     def vikingAttack(self):
-        # your code here
+        #Guardamos las instancias de vikings y saxons en las listas correspondientes
+        elegidoSaxon = random.choice(saxonArmy)
+        elegidoViking = random.choice(vikingArmy)
+        #Invocamos el methodo recieveDamage sobre el saxon elegido con methodo random
+        elegidoSaxon.recieveDamage(elegidoViking.strength)
+        #Comprobamos si aun esta vivo el saxon
+        if elegidoSaxo.health  < 1:
+            saxonArmy.remove(saxonElegido)
+        return elegidoViking.strength
     
     def saxonAttack(self):
         # your code here
