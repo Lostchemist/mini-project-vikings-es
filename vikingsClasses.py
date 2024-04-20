@@ -77,10 +77,23 @@ class War():
         return elegidoViking.strength
     
     def saxonAttack(self):
-        # your code here
+        #Guardamos las instancias de vikings y saxons en las listas correspondientes
+        elegidoSaxon = random.choice(saxonArmy)
+        elegidoViking = random.choice(vikingArmy)
+        #Invocamos el methodo recieveDamage sobre el viking elegido con methodo random
+        elegidoViking.recieveDamage(elegidoSaxon.strength)
+        #Comprobamos si aun esta vivo el Viking
+        if elegidoViking.health  < 1:
+            vikingArmy.remove(elegidoViking)
+        return elegidoSaxon.strength
 
     def showStatus(self):
-        # your code here
+        if vikingArmy.len()==0:
+            return f"Los Sajones han luchado por sus vidas y sobreviven otro día..."
+        elif saxonArmy.len()==0:
+            return f"¡Los Vikingos han ganado la guerra del siglo!"
+        else:
+            return f"Los Vikingos y los Sajones todavía están en plena batalla."
     pass
 
 #yop
