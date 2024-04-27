@@ -71,7 +71,7 @@ class War:
         #Comprobamos si aun esta vivo el saxon
         if self.elegidoSaxon.health  < 1:
             self.saxonArmy.remove(self.elegidoSaxon)
-            print(f"------------------------------->A Saxon has died in combat")
+            print(f"A Saxon has died in combat")
             return f"A Saxon has died in combat"
         else:
             print(f"A Saxon has received {self.elegidoViking.strength} points of damage")
@@ -86,7 +86,7 @@ class War:
         #Comprobamos si aun esta vivo el Viking
         if self.elegidoViking.health  < 1:
             self.vikingArmy.remove(self.elegidoViking)
-            print(f"------------------------------->{self.elegidoViking.name} has died in act of combat")
+            print(f"------------------------------------------------------>{self.elegidoViking.name} has died in act of combat")
             return f"{self.elegidoViking.name} has died in act of combat"
         else:
             print(f"{self.elegidoViking.name} has received {self.elegidoSaxon.strength} points of damage")
