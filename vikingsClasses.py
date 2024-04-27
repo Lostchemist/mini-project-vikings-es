@@ -51,16 +51,16 @@ class Saxon(Soldier):
 
 # Davicente
 
-class War():
+class War:
     def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
 
-    def addViking(self, viking):
-        self.vikingArmy.append(viking)
+    def addViking(self,Viking):
+        self.vikingArmy.append(Viking)
     
-    def addSaxon(self, saxon):
-        self.saxonArmy.append(saxon)
+    def addSaxon(self, Saxon):
+        self.saxonArmy.append(Saxon)
     
     def vikingAttack(self):
         #Guardamos las instancias de vikings y saxons en las listas correspondientes
@@ -71,8 +71,10 @@ class War():
         #Comprobamos si aun esta vivo el saxon
         if self.elegidoSaxon.health  < 1:
             self.saxonArmy.remove(self.elegidoSaxon)
+            print(f"------------------------------->A Saxon has died in combat")
             return f"A Saxon has died in combat"
         else:
+            print(f"A Saxon has received {self.elegidoViking.strength} points of damage")
             return f"A Saxon has received {self.elegidoViking.strength} points of damage"
     
     def saxonAttack(self):
@@ -84,15 +86,19 @@ class War():
         #Comprobamos si aun esta vivo el Viking
         if self.elegidoViking.health  < 1:
             self.vikingArmy.remove(self.elegidoViking)
+            print(f"------------------------------->{self.elegidoViking.name} has died in act of combat")
             return f"{self.elegidoViking.name} has died in act of combat"
         else:
+            print(f"{self.elegidoViking.name} has received {self.elegidoSaxon.strength} points of damage")
             return f"{self.elegidoViking.name} has received {self.elegidoSaxon.strength} points of damage"
 
 
     def showStatus(self):
         if len(self.vikingArmy)==0:
+            print(f"Saxons have fought for their lives and survive another day...")
             return f"Saxons have fought for their lives and survive another day..."
         elif len(self.saxonArmy)==0:
+            print(f"Vikings have won the war of the century!")
             return f"Vikings have won the war of the century!"
         else:
             return f"Vikings and Saxons are still in the thick of battle."
